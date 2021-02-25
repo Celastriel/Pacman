@@ -4,10 +4,23 @@
 html {
 font-size: 16px;
 box-sizing: border-box;
+background-color: rgb(45, 132, 138);
 }
 
 *, *:before, *:after {
 box-sizing: inherit;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 120px;
+    margin: 0;
 }
 
 .container-map{

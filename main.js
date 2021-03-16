@@ -152,9 +152,9 @@ function init(){
 }
 
 function initPacam(){
-    imgPacman.src = "/img/Pacman.png";
-    imgPacman.style.height = "4rem";
-    imgPacman.style.width = "4rem";
+    imgPacman.src = "/img/pacman.png";
+    imgPacman.style.height = "2rem";
+    imgPacman.style.width = "2rem";
     imgPacman.style.position = "absolute";
     imgPacman.style.transition = "1s"
     imgPacman.style.left = "0rem";
@@ -162,25 +162,25 @@ function initPacam(){
 
 function initBoule(){
     let imgBoule = document.createElement("img");
-    imgBoule.src = "/img/Boule.png";
-    imgBoule.style.height = "4rem";
-    imgBoule.style.width = "4rem";
+    imgBoule.src = "/img/boule.png";
+    imgBoule.style.height = "2rem";
+    imgBoule.style.width = "2rem";
     return imgBoule;
 }
 
 function initSuper(){
     let imgSuper = document.createElement("img");
-    imgSuper.src = "/img/Super.png";
-    imgSuper.style.height = "4rem";
-    imgSuper.style.width = "4rem";
+    imgSuper.src = "/img/super.png";
+    imgSuper.style.height = "2rem";
+    imgSuper.style.width = "2rem";
     return imgSuper;
 }
 
 function initFantome(){
     imgFantomes.forEach(imgFantome => {
-        imgFantome.src = "/img/RedGhostRigth.png";
-        imgFantome.style.height = "4rem";
-        imgFantome.style.width = "4rem";
+        imgFantome.src = "/img/redGhostRigth.png";
+        imgFantome.style.height = "2rem";
+        imgFantome.style.width = "2rem";
         imgFantome.style.position = "absolute";
         imgFantome.style.transition = "1s"
         imgFantome.style.left = "0rem";
@@ -198,8 +198,10 @@ function getMapElemFant(i){
 function increaseScore(doc){
     if(doc.childNodes[0] === undefined){
         ///////////////////////////////// ¯\_(ツ)_/¯¯ //////////////////////////////////
+        console.warn("undifined")
     }
-    else if(doc.childNodes[0].src == "http://127.0.0.1:5500/img/Boule.png" || doc.childNodes[0].src == "http://127.0.0.1:5500/img/Super.png"){
+    else if(doc.childNodes[0].src == "http://127.0.0.1:5501/img/boule.png" || doc.childNodes[0].src == "http://127.0.0.1:5501/img/super.png"){
+        console.warn("Increase")
         score = score + 100;
         document.querySelector(".score").innerHTML = `Score : ${score}`;
     }
@@ -314,12 +316,12 @@ function ghostMove(){
                 }
             ///// WIN CONDITION /////////
             if(pos.x == posFantomes[i].x && pos.y == posFantomes[i].y){
-                //alert("Game Over")
-                //document.location.reload();
+                document.write('<h1 style="font-size:10rem">Game Over<h1>')
+                setTimeout(()=> {document.location.reload()},3000)
                 
             }else if(score == 19200){
-                alert("Win");
-                document.location.reload();
+                document.write('<h1 style="font-size:10rem">WIN<h1>')
+                setTimeout(()=> {document.location.reload()},3000)
             }
             ////////////////////////////
         })
